@@ -25,7 +25,7 @@ var outdoormap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.p
 //create a map centered on the United States
 var myMap = L.map("map", {
     center: [39.04, -94.56],
-    zoom: 4,
+    zoom: 12,
     layers: [satellitemap]
 });
 
@@ -70,13 +70,13 @@ function circleColor(magnitude) {
 }
 
 //circles to represent earthquakes
-
+var link = "/data/smalldata.json"
 //Link to perform an API call to the United States Geological Survey to get GeoJSON records
 //for all earthquakes in the last seven days
 //var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 //access the url and create layer
-d3.csv("/data/kcdata.json", function(response) {
+d3.json(link, function(response) {
     console.log(response);
      geoEarthquakes = L.geoJSON(response, {
         pointToLayer: function(feature) {
@@ -94,14 +94,14 @@ d3.csv("/data/kcdata.json", function(response) {
         }
     }).addTo(myMap);
     
-    //controlLayers.addOverlay(geoEarthquakes, "Earthquakes");
+    controlLayers.addOverlay(geoEarthquakes, "Earthquakes");
 });  
 
 //console.log(geoEarthquakes);
 
 //plate tectonics
 //Link to perform a call to the github repo to get tectonic plate boundaries
-var url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json";
+/* var url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json";
 
 //access data and create layer
 d3.json(url2, function(response) {
@@ -116,7 +116,7 @@ d3.json(url2, function(response) {
 
     //add as an overlay map
     controlLayers.addOverlay(geoPlates, "Tectonic Plates");
-});
+}); */
 
 //set up the legend
 var legend = L.control({position: 'bottomright'});
@@ -138,3 +138,33 @@ legend.onAdd = function() {
 };
 //add legend to map
 legend.addTo(myMap);
+
+// Create the createMarkers function
+function createMarkers(link) {
+
+  // Pulling the data from the link
+  d3.json(link, function (data) {
+
+    //Here we are setting variable for markers
+    //We set the markers variable here because we needed to slice the amount of data we are gathering using the SLICE function
+    //var markers = data.data.stations
+    limit = 100
+    data = data.slice(0, limit)
+
+    //Here is our for loop. NOTE that we are using our new variable MARKERS, due to prior slicing
+    //NOTE we are binding our popup data within our FOR loop. 
+    data.forEach(d => {
+      L.marker([d.Lat, d.Lng])
+        .bindPopup("<h5>" + d.Address +
+          "</h5><hr><p>" + 'Description: ' + d.Description + "</p>")
+        .addTo(myMap);
+
+    })
+
+
+  })
+};
+
+//Now we are using the newly made functions here to push the data onto our HTML
+createMarkers(link);
+
