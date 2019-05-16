@@ -24,3 +24,6 @@ CREATE TABLE Crime_Data_2018 (
     Lat varchar(15),
     Lng varchar(15)
 );
+
+select * from crime_data_2018;
+
