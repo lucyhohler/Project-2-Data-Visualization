@@ -1,0 +1,198 @@
+body {
+  /* background-color: #EDEDED; */
+  background: #e7e8e9
+  url(../images/bg_body.png) repeat-x;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.clear {
+  clear: both;
+}
+a {
+  color: grey;
+  text-decoration: none;
+  background-color: transparent;
+}
+.nav {
+  background-color: #fff;
+  margin-bottom: 50px;
+  padding-right: 30px;
+  padding-bottom: 22px;
+}
+.white {
+  background-color: #fff;
+}
+.navbar {
+  padding: 0px 30px 0px 0px;
+  margin-bottom: 50px;
+}
+.box {
+  min-height: 50px;
+  padding: 25px 20px 5px 20px;
+  margin: 5px;
+  /* color: #4CB2AC; */
+  background-color: #fff;
+  border-radius: 15px;
+}
+.left-align {float: left;}
+.right-align {float: right;}
+
+.active {
+  background-color: #4CB2AC;
+  overflow: hidden;
+  font-size: 24px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 100px;
+  text-decoration: none;
+}
+a:hover .active {
+  background-color: #ddd;
+  color: blue;
+  }
+.navbar-brand {
+  background-color: #003754;
+  overflow: hidden;
+  font-size: 24px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 100px;
+  text-decoration: none;
+}
+.navbar-light a.navbar-brand {
+  color: #fff;
+}
+.navbar-light a:hover a.navbar-brand {
+  color: #fff
+}
+p {
+  /* color: #9EB4C7; */
+  font-size: 16px;
+}
+.image1 {
+  width: 100%;
+  height: 300px;
+  background-image: url('resources/assets/images/Fig1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.image2 {
+  width: 100%;
+  height: 300px;
+  background-image: url('resources/assets/images/Fig2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.image3 {
+  width: 100%;
+  height: 300px;
+  background-image: url('resources/assets/images/Fig3.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.image4 {
+  width: 100%;
+  height: 300px;
+  background-image: url('resources/assets/images/Fig4.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.selected {
+  border: 1px solid #4CB2AC;
+}
+#footer {
+  /* position:fixed; */
+  bottom:0;
+  width:100%;
+  height:40px;   /* Height of the footer */
+  background-color:#003754;
+  color: #fff;
+  text-align: center;
+  border-top-style: solid;
+  border-top-color: #4CB2AC;
+}
+.tooltip {
+  position: absolute;
+  opacity: 0.9;
+  width: 120px;
+  height: 60px;
+  padding: 5px;
+  font: 12px sans-serif;
+  text-align: center;
+  color: white;
+  background: black;
+  border: 1px;
+  border-radius: 5px; 
+}
+
+.aText {
+  font-family: sans-serif;
+  font-size: 16px;
+  text-anchor: middle;
+}
+
+.active {
+  font-weight: bold;
+  fill: #000;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.inactive {
+  font-weight: lighter;
+  fill: #c9c9c9;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.inactive:hover {
+  fill: #000;
+  cursor: pointer;
+}
+
+/* font size dependent on radius, see app.js */
+.stateText {
+  font-family: sans-serif;
+  fill: #fff;
+  text-anchor: middle;
+}
+
+.stateCircle {
+  fill: #89bdd3;
+  stroke: #e3e3e3;
+}
+
+.chart {
+  display: block;
+  margin: 0;
+}
+
+.d3-tip {
+  padding: 6px;
+  font-size: 12px;
+  line-height: 1;
+  line-height: 1.5em;
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+}
+@media (max-width: 991px) {
+  .bb-green {background-color: #808083;}
+}
+/* remove default margin and padding from body */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* set map, body, and html to 100% of the screen size */
+#map,
+body,
+html {
+  height: 100%;
+}
