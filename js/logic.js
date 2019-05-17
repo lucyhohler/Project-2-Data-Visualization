@@ -39,62 +39,11 @@ var baseMaps = {
 //create a layer control
 var controlLayers = L.control.layers(baseMaps, {}, {collapsed: false}).addTo(myMap);
 
-//Function to create marker size for earthquakes
-/* function calcRadius(magnitude) {
-    return (magnitude/5) * 20;
-}
-
-//colors for circles
-var colors = ["#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026"];
-
-//function to return color of circle
-function circleColor(magnitude) {
-    if (magnitude < 1) {
-        return colors[0];
-    }
-    else if (magnitude < 2) {
-        return colors[1];
-    }
-    else if (magnitude < 3) {
-        return colors[2];
-    }
-    else if (magnitude < 4) {
-        return colors[3];
-    }
-    else if (magnitude < 5) {
-        return colors[4];
-    }
-    else {
-        return colors[5];
-    }
-} */
-
-//circles to represent earthquakes
+//access the data
 var link = "/data/smalldata.json"
-//Link to perform an API call to the United States Geological Survey to get GeoJSON records
-//for all earthquakes in the last seven days
-//var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-
-//access the url and create layer
+//access the data and create layer
 d3.json(link, function(response) {
     console.log(response);
-     /* geoEarthquakes = L.geoJSON(response, {
-        pointToLayer: function(feature) {
-            return L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
-                fillColor: circleColor(+feature.properties.mag),
-                color: "black",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8,
-                radius: calcRadius(+feature.properties.mag)
-            });
-        }, 
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup("<p><h3>" + feature.properties.place + "</h3></p><p><h3>Magnitude: " + feature.properties.mag + "</h3></p>");
-        }
-    }).addTo(myMap);
-    
-    controlLayers.addOverlay(geoEarthquakes, "Earthquakes"); */
 });  
 // Create the createMarkers function
 function createMarkers(link) {
