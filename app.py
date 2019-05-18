@@ -55,11 +55,11 @@ def map():
 @app.route("/data")
 def data():
 
-    return render_template("smalldata.json")
+    return render_template("kcpd_crime.json")
  
 # API will have 3 parameters: Lat, Lng, and Radius
 # SQL query will search MySQL DB based on the 3 parameters 
-@app.route("/api/v1.0/crimes")
+@app.route("/api/crimes")
 def crimes():
 
     results = session.query(Crime).all()

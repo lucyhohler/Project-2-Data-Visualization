@@ -24,7 +24,7 @@ var outdoormap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.p
 
 //create a map centered on the United States
 var myMap = L.map("map", {
-    center: [39.04, -94.56],
+    center: [39.09, -94.57],
     zoom: 12,
     layers: [satellitemap]
 });
@@ -53,17 +53,21 @@ function createMarkers(link) {
 
     //Here we are setting variable for markers
     //We set the markers variable here because we needed to slice the amount of data we are gathering using the SLICE function
-    limit = 200
+    limit = 500
     data = data.slice(0, limit)
 
     //Here is our for loop. NOTE that we are using our new variable MARKERS, due to prior slicing
     //NOTE we are binding our popup data within our FOR loop. 
     data.forEach(d => {
+      try{
       L.marker([d.Lat, d.Lng])
         .bindPopup("<h5>" + d.Address +
           "</h5><hr><p>" + 'Description: ' + d.Description + "</p>")
-        .addTo(myMap);
-
+        .addTo(myMap);}
+        catch(err) {
+          console.log(err)
+        }
+        
     })
 
 
