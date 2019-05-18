@@ -40,7 +40,7 @@ var baseMaps = {
 var controlLayers = L.control.layers(baseMaps, {}, {collapsed: false}).addTo(myMap);
 
 //access the data
-var link = "/data/smalldata.json"
+var link = "/data"
 //access the data and create layer
 d3.json(link, function(response) {
     console.log(response);

@@ -1,6 +1,6 @@
 # Other files
-data/config.py
-js/config.js
+config.py
+config.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
