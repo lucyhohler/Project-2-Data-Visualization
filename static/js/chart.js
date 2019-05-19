@@ -1,6 +1,6 @@
 // @TODO: YOUR CODE HERE!
 // set svg and chart dimensions
-var svgWidth = 900;
+var svgWidth = 960;
 var svgHeight = 620;
 
 // set margin
@@ -210,7 +210,7 @@ d3.csv("static/data/plot_chart.csv").then(function (crimesData) {
     .attr("r", 12)
     .attr("opacity", ".5");
 
-  /* //append initial text
+  //append initial text
   var textGroup = chartGroup.selectAll(".stateText")
     .data(crimesData)
     .enter()
@@ -221,7 +221,7 @@ d3.csv("static/data/plot_chart.csv").then(function (crimesData) {
     .attr("dy", 3)
     .attr("font-size", "10px")
     .text(function (d) { return d.abbr });
- */
+
   //create group for 3 x-axis labels
   var xLabelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20 + margin.top})`);
@@ -238,7 +238,7 @@ d3.csv("static/data/plot_chart.csv").then(function (crimesData) {
     .classed("aText", true)
     .classed("inactive", true)
     .attr("x", 0)
-    .attr("y", 60)
+    .attr("y", 40)
     .attr("value", "age")
     .text("Age (Average)")
 
@@ -246,7 +246,7 @@ d3.csv("static/data/plot_chart.csv").then(function (crimesData) {
     .classed("aText", true)
     .classed("inactive", true)
     .attr("x", 0)
-    .attr("y", 20)
+    .attr("y", 60)
     .attr("value", "female")
     .text("Female (%)")
 
