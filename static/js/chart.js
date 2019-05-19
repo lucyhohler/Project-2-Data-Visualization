@@ -1,6 +1,6 @@
 // @TODO: YOUR CODE HERE!
 // set svg and chart dimensions
-var svgWidth = 960;
+var svgWidth = 920;
 var svgHeight = 620;
 
 // set margin
@@ -153,7 +153,9 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     .attr("class", "d3-tip")
     .offset([-8, 0])
     .html(function (d) {
-      return (`${d.zipcode}<br>${xLabel} ${styleX(d[chosenXAxis], chosenXAxis)}<br>${yLabel} ${d[chosenYAxis]}%`);
+      var x = styleX(d[chosenXAxis].toFixed(2), chosenXAxis);
+      var y = Number.parseFloat(d[chosenYAxis]).toFixed(2);
+      return (`${d.zipcode}<br>${xLabel} ${x}<br>${yLabel} ${y}%`);
     });
 
   circlesGroup.call(toolTip);
