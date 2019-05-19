@@ -1,4 +1,4 @@
-﻿id,zipcode,age,non_agg_assault ,stealing,aggr,male,female,unknown
+﻿﻿id,zipcode,age,non_agg_assault ,stealing,aggr,male,female,unknown
 1,61406,40,0.019888624,0,0,0.007767594,0,0
 2,61409,55,0,0,0,0.007767594,0,0
 3,61434,47,0.019888624,0,0,0.007767594,0,0
